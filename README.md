@@ -1,6 +1,6 @@
 # data-engineering-zoomcamp
 data-engineering-zoomcamp 2025
-# WK3 HOMEWORK:
+## WK3 HOMEWORK:
 -- Q1:
 SELECT count(1)
 FROM `dulcet-record-450703-g3.nyc_taxi.yellow_tripdata_regular`;
