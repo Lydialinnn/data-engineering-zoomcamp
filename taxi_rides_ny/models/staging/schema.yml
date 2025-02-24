@@ -4,13 +4,13 @@ version: 2
 sources:
   - name: staging
     database: "{{ env_var('DBT_DATABASE', 'dulcet-record-450703-g3') }}"
-    schema: "{{ env_var('DBT_SCHEMA', 'trips_data_all') }}"
+    schema: "{{ env_var('DBT_SCHEMA', 'homwwork_module_4') }}"
       # loaded_at_field: record_loaded_at
     tables:
-      - name: green_tripdata
-      - name: yellow_tripdata
-         # freshness:
-           # error_after: {count: 6, period: hour}
+      - name: Green_Taxis_dataset
+      - name: Yellow_Taxi_dataset
+      - name: For_Hire_Vehicle_dataset
+
 
 models:
     - name: stg_green_tripdata
@@ -195,3 +195,38 @@ models:
             description: Total amount of all tolls paid in trip.
           - name: Total_amount 
             description: The total amount charged to passengers. Does not include cash tips.
+
+    - name: For_Hire_Vehicle_dataset
+      description: >
+        Trips made by New York City's iconic yellow taxis. .
+        columns:
+          - name: dispatching_base_num
+            description: "Unique identifier for the dispatching base"
+            data_type: STRING
+            nullable: YES
+          - name: pickup_datetime
+            description: "Timestamp when the trip started"
+            data_type: TIMESTAMP
+            nullable: YES
+          - name: dropOff_datetime
+            description: "Timestamp when the trip ended"
+            data_type: TIMESTAMP
+            nullable: YES
+          - name: PUlocationID
+            description: "Pickup location ID"
+            data_type: STRING
+            nullable: YES
+          - name: DOlocationID
+            description: "Drop-off location ID"
+            data_type: STRING
+            nullable: YES
+          - name: SR_Flag
+            description: "Service request flag indicating whether the trip was a special request"
+            data_type: STRING
+            nullable: YES
+          - name: Affiliated_base_number
+            description: "Base number of the affiliated taxi company"
+            data_type: STRING
+            nullable: YES
+
+
